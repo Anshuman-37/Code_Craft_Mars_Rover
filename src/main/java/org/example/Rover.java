@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,24 +24,22 @@ public class Rover {
         List<String> directions = Arrays.asList("North","East","South","West");
 
         if( getInstruction().equals("R") ) {
-            int rightIdx = directions.indexOf(getDirection())+1;
-            try{
-                this.direction = directions.get(rightIdx);
-            }
-            catch(Exception e){
-                this.direction = directions.get(0);
-            }
+            turn(directions.indexOf(getDirection()) + 1, directions, 0);
         }
 
         else if( getInstruction().equals("L") ){
-            int leftIdx = directions.indexOf(getDirection())-1;
-            try{
-                this.direction = directions.get(leftIdx);
-            }
-            catch(Exception e){
-                this.direction = directions.get(directions.size()-1);
-            }
+            turn(directions.indexOf(getDirection()) - 1, directions, directions.size() - 1);
         }
         return getDirection();
+    }
+
+    private void turn(int directions, List<String> directions1, int index) {
+        int rightIdx = directions;
+        try{
+            this.direction = directions1.get(rightIdx);
+        }
+        catch(Exception e){
+            this.direction = directions1.get(index);
+        }
     }
 }
