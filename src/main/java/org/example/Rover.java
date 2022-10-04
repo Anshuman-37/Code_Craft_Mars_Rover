@@ -47,16 +47,20 @@ public class Rover {
         }
 
         else if( getInstruction().equals("B") ){
-            if(getDirection().equals("West"))
-                this.x = this.x+1;
-            else if(getDirection().equals("East"))
-                this.x = this.x-1;
-            else if(getDirection().equals("North"))
-                this.y = this.y-1;
-            else if(getDirection().equals("South"))
-                this.y = this.y+1;
-            this.coordinates = Integer.toString(this.x)+","+Integer.toString(this.y);
+            moveBackward();
         }
+    }
+
+    private void moveBackward() {
+        if(getDirection().equals("West"))
+            this.x = this.x+1;
+        else if(getDirection().equals("East"))
+            this.x = this.x-1;
+        else if(getDirection().equals("North"))
+            this.y = this.y-1;
+        else if(getDirection().equals("South"))
+            this.y = this.y+1;
+        this.coordinates = Integer.toString(this.x)+","+Integer.toString(this.y);
     }
 
     private void moveForward() {
